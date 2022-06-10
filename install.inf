@@ -8,10 +8,15 @@ homepage=(Fill the GitHub repo URL)
 [item2]
 section=commands
 caption=Font changer\Next font
-method=next_font
+method=next_font_
 
 [item3]
 section=commands
 caption=Font changer\Previous font
-method=previous_font
+method=previous_font_
+
+[item4]
+section=commands
+caption=Font changer\Select font...
+method=select_font_
 
