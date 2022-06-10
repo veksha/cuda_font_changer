@@ -2,6 +2,7 @@ import os
 import time
 from cudatext import *
 import cudax_lib as apx
+import cudatext_cmd as cmds
 
 FONTS = [font for font in app_proc(PROC_ENUM_FONTS, '') if not font.startswith('@')]
 
@@ -19,6 +20,7 @@ class Command:
         font = FONTS[idx]
         ed.set_prop(PROP_FONT, font)
         apx.set_opt('font_name',font)
+        ed.cmd(cmds.cmd_OpsReloadAndApply)
         print('{}. {}'.format(idx+1,font))
         time.sleep(0.01) # sleep to help saving config! important
 
@@ -31,5 +33,6 @@ class Command:
         font = FONTS[idx]
         ed.set_prop(PROP_FONT, font)
         apx.set_opt('font_name',font)
+        ed.cmd(cmds.cmd_OpsReloadAndApply)
         print('{}. {}'.format(idx+1,font))
         time.sleep(0.01) # sleep to help saving config! important
