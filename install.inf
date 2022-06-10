@@ -1,0 +1,17 @@
+[info]
+title=Font changer
+desc=(Fill the description)
+type=cudatext-plugin
+subdir=cuda_font_changer
+homepage=(Fill the GitHub repo URL)
+
+[item2]
+section=commands
+caption=Font changer\Next font
+method=next_font
+
+[item3]
+section=commands
+caption=Font changer\Previous font
+method=previous_font
+
