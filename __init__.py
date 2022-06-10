@@ -24,7 +24,7 @@ class Command:
     def select_font_(self,focus=-1):
         if focus==-1:
             current_font = apx.get_opt('font_name')
-            focus = FONTS.index(current_font)
+            focus = FONTS.index(current_font) if current_font in FONTS else 0
 
         res = dlg_menu(DMENU_LIST, FONTS, focused=focus, caption=_('Select font'))
         if res is None:
@@ -36,7 +36,7 @@ class Command:
 
     def next_font_(self):
         current_font = apx.get_opt('font_name')
-        idx = FONTS.index(current_font)
+        idx = FONTS.index(current_font) if current_font in FONTS else 0
         if idx+1 >= len(FONTS):
             return
         idx+=1
@@ -48,7 +48,7 @@ class Command:
 
     def previous_font_(self):
         current_font = apx.get_opt('font_name')
-        idx = FONTS.index(current_font)
+        idx = FONTS.index(current_font) if current_font in FONTS else 0
         if idx == 0:
             return
         idx-=1
