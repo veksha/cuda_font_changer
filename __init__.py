@@ -21,18 +21,19 @@ class Command:
         pass
 
 
-    def select_font_(self,focus=-1):
-        if focus==-1:
-            current_font = apx.get_opt('font_name')
-            focus = FONTS.index(current_font) if current_font in FONTS else 0
+    def select_font_(self):
+        focus = -1
+        while True:
+            if focus==-1:
+                current_font = apx.get_opt('font_name')
+                focus = FONTS.index(current_font) if current_font in FONTS else 0
 
-        res = dlg_menu(DMENU_LIST, FONTS, focused=focus, caption=_('Select font'))
-        if res is None:
-            reload_and_apply() # globally apply settings only on menu close
-            return
+            res = focus = dlg_menu(DMENU_LIST, FONTS, focused=focus, caption=_('Select font'))
+            if res is None:
+                reload_and_apply() # globally apply settings only on menu close
+                return
 
-        change_font(FONTS[res])
-        self.select_font_(res) # again
+            change_font(FONTS[res])
 
     def next_font_(self):
         current_font = apx.get_opt('font_name')
